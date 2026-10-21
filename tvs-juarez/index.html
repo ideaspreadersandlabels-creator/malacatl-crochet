@@ -37,9 +37,8 @@
     .top a { color: #fff; }
     header.site { position: sticky; top: 0; z-index: 10; background: #fff; border-bottom: 1px solid var(--line); }
     .nav { display: flex; align-items: center; justify-content: space-between; min-height: 72px; gap: 16px; }
-    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--blue); }
-    .brand strong { font-size: 1.35rem; letter-spacing: .04em; }
-    .brand span { display: block; color: var(--muted); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
+    .brand { display: flex; align-items: center; text-decoration: none; }
+    .brand img { height: 54px; width: auto; display: block; }
     nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
     nav a { color: var(--ink); text-decoration: none; font-weight: 500; }
     nav a:hover { color: var(--blue); }
@@ -100,6 +99,7 @@
     .error { color: var(--red); font-size: .88rem; margin: 4px 0 0; }
     fieldset { border: 0; margin: 0; padding: 0; }
     footer { background: var(--blue-2); color: #fff; padding: 36px 0 24px; }
+    .logo-pie { height: 52px; width: auto; display: block; margin: 0 0 18px; }
     footer a { color: #fff; }
     .foot { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 22px; }
     footer h2 { font-size: 1rem; text-transform: uppercase; }
@@ -144,8 +144,7 @@
   <header class="site">
     <div class="wrap nav">
       <a class="brand" href="#inicio">
-        <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="8" fill="#0c3688"/><path d="M7 25h22M11 25a4.2 4.2 0 1 1 0-8.4A4.2 4.2 0 0 1 11 25zm14 0a4.2 4.2 0 1 1 0-8.4 4.2 4.2 0 0 1 0 8.4zM14 21l3-6h6.2L26 21" fill="none" stroke="#fff" stroke-width="1.7"/></svg>
-        <span><strong>TVS JUÁREZ</strong><span>Punto de venta</span></span>
+        <img src="logo.svg" alt="TVS CD Juárez" width="280" height="54">
       </a>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menú</button>
       <nav id="menu">
@@ -344,6 +343,7 @@
 
   <footer>
     <div class="wrap">
+      <img class="logo-pie" src="logo-blanco.svg" alt="TVS CD Juárez" width="270" height="52">
       <div class="foot">
         <div>
           <h2>Enlaces útiles</h2>
