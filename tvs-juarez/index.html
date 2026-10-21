@@ -61,7 +61,8 @@
     .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
     .hero .btn { border-color: #fff; color: #fff; background: transparent; }
     .hero .btn-red { background: var(--red); border-color: var(--red); color: #fff; }
-    .feature { background: #fff; color: var(--ink); border-radius: 16px; padding: 22px; box-shadow: 0 22px 50px rgba(0, 0, 0, .28); }
+    .feature { background: #fff; color: var(--ink); border-radius: 16px; padding: 0 0 22px; overflow: hidden; box-shadow: 0 22px 50px rgba(0, 0, 0, .28); }
+    .feature-body { padding: 18px 22px 0; }
     .feature .kicker { color: var(--red); }
     .feature p { margin: 6px 0; }
     .feature .price { font-size: 2.3rem; font-weight: 700; margin: 10px 0 0; color: var(--red); }
@@ -84,7 +85,11 @@
     .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
     .filters button[aria-pressed="true"] { background: var(--blue); color: #fff; }
     .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .card { background: var(--card); border: 1px solid #e4eaf2; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; min-height: 100%; box-shadow: 0 10px 28px rgba(12, 54, 136, .05); }
+    .photo { aspect-ratio: 4 / 3; background: #071833; overflow: hidden; }
+    .photo img, img.cmp { width: 100%; height: 100%; object-fit: cover; object-position: right center; display: block; }
+    img.cmp { width: 168px; height: 126px; border-radius: 8px; background: #071833; }
+    .card { background: var(--card); border: 1px solid #e4eaf2; border-radius: 14px; padding: 0; display: flex; flex-direction: column; min-height: 100%; overflow: hidden; box-shadow: 0 10px 28px rgba(12, 54, 136, .05); }
+    .card-body { padding: 14px 16px 16px; display: flex; flex-direction: column; flex: 1; }
     .card:hover { transform: translateY(-3px); box-shadow: 0 16px 34px rgba(12, 54, 136, .1); }
     .card.picked { outline: 2px solid var(--red); }
     .cat { margin: 0; color: var(--blue); font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
@@ -124,7 +129,12 @@
     .compare-bar p { margin: 0; }
     .compare-bar .btn { border-color: #fff; color: #fff; background: transparent; }
     .compare-bar .btn-red { background: var(--red); border-color: var(--red); }
-    dialog { width: min(720px, calc(100% - 24px)); border: 0; border-radius: 12px; padding: 20px; color: var(--ink); }
+    dialog { width: min(720px, calc(100% - 24px)); max-height: min(92vh, 900px); overflow: auto; border: 0; border-radius: 12px; padding: 0 0 20px; color: var(--ink); }
+    #ficha .head, #ficha .price, #ficha .tabs, #ficha table, #ficha ul, #ficha .actions { margin-left: 20px; margin-right: 20px; }
+    #comparacion .head { margin: 0 20px; }
+    #comparacion > div { padding: 0 20px 4px; }
+    dialog .head { padding-top: 16px; }
+    #ficha .photo { border-radius: 12px 12px 0 0; }
     dialog::backdrop { background: rgba(7, 20, 48, .62); }
     .head { display: flex; justify-content: space-between; gap: 12px; align-items: start; }
     .close { border: 1px solid var(--line); background: #fff; border-radius: 6px; min-width: 44px; min-height: 44px; cursor: pointer; }
@@ -188,19 +198,24 @@
           </div>
         </div>
         <article class="feature">
-          <p class="kicker">Ficha destacada</p>
-          <h2>Apache RTR 200 4V</h2>
-          <p>Diseñada para adaptarse</p>
-          <p class="price">$44,990 <small style="font-size:.8rem;font-weight:400">MXN con IVA</small></p>
-          <ul class="specs">
-            <li>197.75 cc</li>
-            <li>20.23 HP</li>
-            <li>5 velocidades</li>
-            <li>SmartXonnect</li>
-          </ul>
-          <div class="actions">
-            <button class="btn btn-red" type="button" id="hero-ficha">Conoce más</button>
-            <a class="btn" href="https://mexico.tvsmotor.com/es/p/our-products/apache-rtr-200-4v-mx" target="_blank" rel="noopener">Ficha TVS México</a>
+          <div class="photo">
+            <img src="fotos/rtr200.webp" alt="Apache RTR 200 4V" width="1600" height="600">
+          </div>
+          <div class="feature-body">
+            <p class="kicker">Ficha destacada</p>
+            <h2>Apache RTR 200 4V</h2>
+            <p>Diseñada para adaptarse</p>
+            <p class="price">$44,990 <small style="font-size:.8rem;font-weight:400">MXN con IVA</small></p>
+            <ul class="specs">
+              <li>197.75 cc</li>
+              <li>20.23 HP</li>
+              <li>5 velocidades</li>
+              <li>SmartXonnect</li>
+            </ul>
+            <div class="actions">
+              <button class="btn btn-red" type="button" id="hero-ficha">Conoce más</button>
+              <a class="btn" href="https://mexico.tvsmotor.com/es/p/our-products/apache-rtr-200-4v-mx" target="_blank" rel="noopener">Ficha TVS México</a>
+            </div>
           </div>
         </article>
       </div>
@@ -219,7 +234,7 @@
         <div class="section-head">
           <div>
             <h2>Nuestros productos</h2>
-            <p>Cada ficha resume la página oficial y enlaza al visor de TVS México. Ahí están las fotos, el giro 360° y el folleto.</p>
+            <p>La foto de cada modelo es la del sitio de TVS México. La ficha resume esa página y enlaza al visor, el giro 360° y el folleto.</p>
           </div>
         </div>
         <div class="filters" role="group" aria-label="Filtrar productos">
@@ -405,6 +420,9 @@
   </div>
 
   <dialog id="ficha">
+    <div class="photo">
+      <img id="ficha-foto" alt="" width="1600" height="600">
+    </div>
     <div class="head">
       <div>
         <p class="cat" id="ficha-cat"></p>
@@ -460,14 +478,17 @@
       const lista = MODELOS.filter((m) => filtro === "todas" || m.categoria === filtro);
       catalogo.innerHTML = lista.map((m) => `
         <article class="card${comparado.includes(m.id) ? " picked" : ""}">
-          <p class="cat">${etiquetas[m.categoria]}</p>
-          <h3>${m.nombre}</h3>
-          <p class="lema">${m.lema}</p>
-          <ul class="specs">${m.chips.map((c) => `<li>${c}</li>`).join("")}</ul>
-          <p class="price">${precioTexto(m)}<small>${m.precio ? "Lista TVS México" : "Precio en piso"}</small></p>
-          <div class="actions">
-            <button class="btn btn-blue" type="button" data-ficha="${m.id}">Conoce más</button>
-            <button class="btn" type="button" data-comparar="${m.id}" aria-pressed="${comparado.includes(m.id)}">${comparado.includes(m.id) ? "En comparación" : "Comparar"}</button>
+          <div class="photo"><img src="fotos/${m.id}.webp" alt="${m.nombre}" width="1600" height="600" loading="lazy"></div>
+          <div class="card-body">
+            <p class="cat">${etiquetas[m.categoria]}</p>
+            <h3>${m.nombre}</h3>
+            <p class="lema">${m.lema}</p>
+            <ul class="specs">${m.chips.map((c) => `<li>${c}</li>`).join("")}</ul>
+            <p class="price">${precioTexto(m)}<small>${m.precio ? "Lista TVS México" : "Precio en piso"}</small></p>
+            <div class="actions">
+              <button class="btn btn-blue" type="button" data-ficha="${m.id}">Conoce más</button>
+              <button class="btn" type="button" data-comparar="${m.id}" aria-pressed="${comparado.includes(m.id)}">${comparado.includes(m.id) ? "En comparación" : "Comparar"}</button>
+            </div>
           </div>
         </article>`).join("");
     }
@@ -481,6 +502,9 @@
     function abrirFicha(id) {
       fichaActual = buscar(id);
       grupoActual = Object.keys(fichaActual.grupos)[0];
+      const foto = document.querySelector("#ficha-foto");
+      foto.src = `fotos/${fichaActual.id}.webp`;
+      foto.alt = fichaActual.nombre;
       document.querySelector("#ficha-cat").textContent = etiquetas[fichaActual.categoria];
       document.querySelector("#ficha-nombre").textContent = fichaActual.nombre;
       document.querySelector("#ficha-lema").textContent = fichaActual.lema;
@@ -558,7 +582,7 @@
     document.querySelector("#abrir-comparacion").addEventListener("click", () => {
       const elegidos = comparado.map(buscar);
       const campos = [["Modelo", "nombre"], ["Uso", "categoria"], ["Cilindrada", "cc"], ["Potencia", "potencia"], ["Transmisión", "transmision"], ["Precio", "precio"]];
-      document.querySelector("#tabla-comparacion").innerHTML = `<tr><th></th>${elegidos.map((m) => `<th>${m.nombre}</th>`).join("")}</tr>` + campos.map(([label, key]) => `<tr><th>${label}</th>${elegidos.map((m) => `<td>${key === "precio" ? precioTexto(m) : key === "categoria" ? etiquetas[m.categoria] : m[key]}</td>`).join("")}</tr>`).join("");
+      document.querySelector("#tabla-comparacion").innerHTML = `<tr><th></th>${elegidos.map((m) => `<th><img class="cmp" src="fotos/${m.id}.webp" alt=""><span>${m.nombre}</span></th>`).join("")}</tr>` + campos.map(([label, key]) => `<tr><th>${label}</th>${elegidos.map((m) => `<td>${key === "precio" ? precioTexto(m) : key === "categoria" ? etiquetas[m.categoria] : m[key]}</td>`).join("")}</tr>`).join("");
       document.querySelector("#comparacion").showModal();
     });
     document.querySelector("#limpiar-comparacion").addEventListener("click", () => { comparado.length = 0; actualizarComparacion(); });
