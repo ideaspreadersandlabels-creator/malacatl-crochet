@@ -6,7 +6,7 @@
   <title>TVS Juárez · Motos, motonetas y trabajo en Ciudad Juárez</title>
   <meta name="description" content="Punto de venta TVS en Ciudad Juárez, Chihuahua. Catálogo Apache, Ronin, NTORQ, iQube y HLX con los precios de lista publicados por TVS México.">
   <meta name="theme-color" content="#0c3688">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.png" type="image/png">
   <meta property="og:title" content="TVS Juárez · Motos en Ciudad Juárez">
   <meta property="og:description" content="Deportivas Apache, Ronin, NTORQ, iQube y HLX. Precios de lista de TVS México.">
   <meta property="og:locale" content="es_MX">
@@ -37,8 +37,10 @@
     .top a { color: #fff; }
     header.site { position: sticky; top: 0; z-index: 10; background: #fff; border-bottom: 1px solid var(--line); }
     .nav { display: flex; align-items: center; justify-content: space-between; min-height: 72px; gap: 16px; }
-    .brand { display: flex; align-items: center; text-decoration: none; }
-    .brand img { height: 54px; width: auto; display: block; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--blue); }
+    .brand img { height: 46px; width: auto; display: block; }
+    .logo-ciudad { font-weight: 700; letter-spacing: .12em; line-height: .95; font-size: .95rem; }
+    .logo-ciudad small { display: block; font-size: .62rem; letter-spacing: .2em; font-weight: 700; }
     nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
     nav a { color: var(--ink); text-decoration: none; font-weight: 500; }
     nav a:hover { color: var(--blue); }
@@ -99,7 +101,8 @@
     .error { color: var(--red); font-size: .88rem; margin: 4px 0 0; }
     fieldset { border: 0; margin: 0; padding: 0; }
     footer { background: var(--blue-2); color: #fff; padding: 36px 0 24px; }
-    .logo-pie { height: 52px; width: auto; display: block; margin: 0 0 18px; }
+    .logo-pie { display: flex; align-items: center; gap: 12px; margin: 0 0 18px; color: #fff; font-weight: 700; letter-spacing: .14em; }
+    .logo-pie img { height: 46px; width: auto; background: #fff; border-radius: 8px; padding: 6px 10px; }
     footer a { color: #fff; }
     .foot { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 22px; }
     footer h2 { font-size: 1rem; text-transform: uppercase; }
@@ -123,6 +126,8 @@
     @media (max-width: 860px) {
       .hero-grid, .grid, .steps, .split, .stats, .row, .foot { grid-template-columns: 1fr; }
       .menu-btn { display: inline-flex; }
+      .brand img { height: 34px; }
+      .logo-ciudad { font-size: .72rem; }
       nav { display: none; position: absolute; inset: 100% 0 auto 0; background: #fff; border-bottom: 1px solid var(--line); padding: 8px 16px 16px; }
       nav.open { display: block; }
       nav ul { flex-direction: column; }
@@ -144,7 +149,8 @@
   <header class="site">
     <div class="wrap nav">
       <a class="brand" href="#inicio">
-        <img src="logo.svg" alt="TVS CD Juárez" width="280" height="54">
+        <img src="logo-tvs.png" alt="TVS" width="210" height="44">
+        <span class="logo-ciudad"><small>CD</small>JUÁREZ</span>
       </a>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menú</button>
       <nav id="menu">
@@ -343,7 +349,7 @@
 
   <footer>
     <div class="wrap">
-      <img class="logo-pie" src="logo-blanco.svg" alt="TVS CD Juárez" width="270" height="52">
+      <div class="logo-pie"><img src="logo-tvs.png" alt="TVS"><span>CD JUÁREZ</span></div>
       <div class="foot">
         <div>
           <h2>Enlaces útiles</h2>
