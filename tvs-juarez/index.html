@@ -3,357 +3,157 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TVS Juárez · Distribuidora de motos en Ciudad Juárez, Chihuahua</title>
-  <meta name="description" content="Distribuidora de motos TVS en Ciudad Juárez, Chihuahua. Apache, NTORQ y motos de trabajo. Cotiza, simula un enganche y agenda prueba de manejo o servicio.">
-  <meta name="theme-color" content="#141210">
+  <title>TVS Juárez · Motos, motonetas y trabajo en Ciudad Juárez</title>
+  <meta name="description" content="Punto de venta TVS en Ciudad Juárez, Chihuahua. Catálogo Apache, Ronin, NTORQ, iQube y HLX con los precios de lista publicados por TVS México.">
+  <meta name="theme-color" content="#0c3688">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta property="og:title" content="TVS Juárez · Motos en Ciudad Juárez">
-  <meta property="og:description" content="Deportivas Apache, motoneta NTORQ y motos de trabajo en Ciudad Juárez, Chihuahua.">
+  <meta property="og:description" content="Deportivas Apache, Ronin, NTORQ, iQube y HLX. Precios de lista de TVS México.">
   <meta property="og:locale" content="es_MX">
   <meta property="og:type" content="website">
   <style>
-    @font-face { font-family: "Barlow Condensed"; src: url("fonts/barlow-500.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
-    @font-face { font-family: "Barlow Condensed"; src: url("fonts/barlow-600.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
-    @font-face { font-family: "Barlow Condensed"; src: url("fonts/barlow-700.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
-    @font-face { font-family: Outfit; src: url("fonts/outfit.woff2") format("woff2"); font-weight: 300 600; font-style: normal; font-display: swap; }
-    @font-face { font-family: "IBM Plex Mono"; src: url("fonts/plex-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
-    @font-face { font-family: "IBM Plex Mono"; src: url("fonts/plex-500.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
-
+    @font-face { font-family: Roboto; src: url("fonts/roboto.woff2") format("woff2"); font-weight: 400 700; font-style: normal; font-display: swap; }
     :root {
-      --bg: #f3eee6;
-      --bg-2: #e7e0d4;
-      --ink: #141210;
-      --muted: #5c564e;
-      --line: rgba(20, 18, 16, .16);
-      --card: #fffdf9;
-      --red: #d10f1c;
-      --red-dark: #8e0b14;
-      --sand: #c8b79a;
-      --shadow: 0 18px 40px rgba(20, 18, 16, .08);
-      --sans: Outfit, "Segoe UI", sans-serif;
-      --display: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
-      --mono: "IBM Plex Mono", ui-monospace, monospace;
+      --blue: #0c3688;
+      --blue-2: #18407e;
+      --red: #f12b00;
+      --ink: #212529;
+      --muted: #5a5555;
+      --line: #d9d9d9;
+      --bg: #f3f6fb;
+      --card: #fff;
     }
-
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--ink);
-      font-family: var(--sans);
-      font-size: 1.05rem;
-      line-height: 1.6;
-      overflow-x: clip;
-    }
-    img, svg { max-width: 100%; }
-    a { color: inherit; }
+    body { margin: 0; font-family: Roboto, Arial, Helvetica, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.5; }
+    a { color: var(--blue); }
     button, input, select, textarea { font: inherit; color: inherit; }
-    .skip {
-      position: absolute;
-      left: 12px;
-      top: -40px;
-      background: var(--ink);
-      color: white;
-      padding: 8px 12px;
-      z-index: 20;
-    }
+    img, svg { max-width: 100%; }
+    .skip { position: absolute; left: 12px; top: -40px; background: #fff; padding: 8px 12px; z-index: 30; }
     .skip:focus { top: 12px; }
-
-    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
-    .eyebrow {
-      font-family: var(--mono);
-      font-size: .72rem;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--red);
-      margin: 0 0 10px;
-    }
-    h1, h2, h3 { font-family: var(--display); font-weight: 600; letter-spacing: .01em; line-height: .92; margin: 0; }
-    h1 { font-size: clamp(4.2rem, 11vw, 8.4rem); text-transform: uppercase; }
-    h2 { font-size: clamp(2.6rem, 6vw, 4.6rem); text-transform: uppercase; }
-    h3 { font-size: 2rem; text-transform: uppercase; }
-
-    .topbar {
-      background: var(--ink);
-      color: #f3eee6;
-      font-family: var(--mono);
-      font-size: .75rem;
-      letter-spacing: .04em;
-    }
-    .topbar .wrap { display: flex; justify-content: space-between; gap: 16px; padding: 8px 0; flex-wrap: wrap; }
-    header.site {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(243, 238, 230, .92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
-    }
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 72px;
-      gap: 16px;
-    }
-    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .brand strong { font-family: var(--display); font-size: 1.7rem; letter-spacing: .06em; font-weight: 700; }
-    .brand span { display: block; font-family: var(--mono); font-size: .65rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
-    .mark { width: 36px; height: 36px; }
+    .wrap { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+    .top { background: var(--blue); color: #fff; font-size: .84rem; }
+    .top .wrap { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; flex-wrap: wrap; }
+    .top a { color: #fff; }
+    header.site { position: sticky; top: 0; z-index: 10; background: #fff; border-bottom: 1px solid var(--line); }
+    .nav { display: flex; align-items: center; justify-content: space-between; min-height: 72px; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--blue); }
+    .brand strong { font-size: 1.35rem; letter-spacing: .04em; }
+    .brand span { display: block; color: var(--muted); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
     nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
-    nav a { text-decoration: none; font-size: .92rem; }
-    nav a:hover { color: var(--red); }
-    .menu-btn {
-      display: none;
-      border: 1px solid var(--ink);
-      background: transparent;
-      min-height: 44px;
-      padding: 0 14px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      font-size: .78rem;
-    }
-
-    .hero { padding: 42px 0 20px; }
-    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 36px; align-items: end; }
-    .lead { font-size: 1.15rem; max-width: 38rem; color: var(--muted); }
-    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 26px 0 8px; }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 18px;
-      text-decoration: none;
-      border: 1px solid var(--ink);
-      background: transparent;
-      cursor: pointer;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      font-size: .82rem;
-    }
-    .btn:hover { transform: translateY(-1px); }
-    .btn:disabled { opacity: .45; cursor: not-allowed; transform: none; }
-    .btn-red { background: var(--red); border-color: var(--red); color: white; }
-    .btn-red:hover { background: var(--red-dark); }
-    .btn-dark { background: var(--ink); color: white; border-color: var(--ink); }
-    .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 28px; }
-    .facts article { border-top: 2px solid var(--ink); padding-top: 8px; }
-    .facts strong { display: block; font-family: var(--display); font-size: 1.4rem; letter-spacing: .03em; text-transform: uppercase; }
-    .facts span { color: var(--muted); font-size: .92rem; }
-    .plate {
-      background: var(--ink);
-      color: #f3eee6;
-      min-height: 420px;
-      padding: 18px;
-      position: relative;
-      box-shadow: var(--shadow);
-    }
-    .plate .tag {
-      font-family: var(--mono);
-      font-size: .72rem;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--sand);
-    }
-    .blueprint { width: 100%; height: auto; color: rgba(243, 238, 230, .45); }
-    .blueprint .bike { stroke: #f3eee6; fill: none; stroke-width: 2.4; stroke-linejoin: round; stroke-linecap: round; }
-    .blueprint .hot { stroke: #ff3b45; }
-    .plate figcaption { display: flex; justify-content: space-between; gap: 12px; font-family: var(--mono); font-size: .75rem; color: var(--sand); }
-
-    .marquee { border-block: 1px solid var(--line); overflow: hidden; margin-top: 34px; }
-    .marquee-track { display: flex; gap: 28px; width: max-content; padding: 10px 0; animation: slide 28s linear infinite; font-family: var(--display); letter-spacing: .14em; text-transform: uppercase; font-size: 1.05rem; }
-    @keyframes slide { to { transform: translateX(-50%); } }
-
-    section { padding: 72px 0; }
-    .section-head { display: flex; justify-content: space-between; gap: 24px; align-items: end; margin-bottom: 28px; }
-    .section-head p { max-width: 36rem; margin: 8px 0 0; color: var(--muted); }
-
-    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
-    .filters button[aria-pressed="true"] { background: var(--ink); color: white; }
-
+    nav a { color: var(--ink); text-decoration: none; font-weight: 500; }
+    nav a:hover { color: var(--blue); }
+    .menu-btn { display: none; border: 1px solid var(--blue); background: #fff; color: var(--blue); min-height: 44px; padding: 0 14px; border-radius: 6px; font-weight: 700; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 16px; border-radius: 6px; border: 1px solid var(--blue); background: #fff; color: var(--blue); text-decoration: none; font-weight: 700; font-size: .82rem; letter-spacing: .04em; text-transform: uppercase; cursor: pointer; }
+    .btn-red { background: var(--red); border-color: var(--red); color: #fff; }
+    .btn-blue { background: var(--blue); color: #fff; }
+    .btn:disabled { opacity: .45; cursor: not-allowed; }
+    .hero { background: linear-gradient(115deg, #071a44 0%, var(--blue) 55%, #1d4e9c 100%); color: #fff; padding: 48px 0 36px; }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 28px; align-items: center; }
+    .kicker { margin: 0 0 8px; letter-spacing: .14em; text-transform: uppercase; font-size: .75rem; color: #ffd0c8; }
+    h1, h2 { margin: 0; line-height: 1.1; }
+    h1 { font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 700; }
+    h2 { font-size: clamp(1.7rem, 3vw, 2.2rem); }
+    .lead { font-size: 1.05rem; max-width: 38rem; color: #e6eeff; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .hero .btn { border-color: #fff; color: #fff; background: transparent; }
+    .hero .btn-red { background: var(--red); border-color: var(--red); color: #fff; }
+    .feature { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.2); border-radius: 12px; padding: 18px; }
+    .feature p { margin: 6px 0; }
+    .feature .price { font-size: 2.4rem; font-weight: 700; margin: 8px 0; }
+    .specs { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 0; padding: 0; list-style: none; }
+    .specs li { border: 1px solid rgba(255,255,255,.35); border-radius: 99px; padding: 4px 10px; font-size: .8rem; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); background: #fff; }
+    .stats article { padding: 22px 8px; text-align: center; border-right: 1px solid var(--line); }
+    .stats article:last-child { border-right: 0; }
+    .stats strong { display: block; color: var(--blue); font-size: 1.45rem; }
+    .stats span { color: var(--muted); font-size: .92rem; }
+    section { padding: 56px 0; }
+    .section-head { display: flex; justify-content: space-between; gap: 20px; align-items: end; margin-bottom: 18px; }
+    .section-head p { margin: 8px 0 0; color: var(--muted); max-width: 40rem; }
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .filters button[aria-pressed="true"] { background: var(--blue); color: #fff; }
     .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      padding: 16px 16px 18px;
-      display: flex;
-      flex-direction: column;
-      min-height: 100%;
-      position: relative;
-    }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; min-height: 100%; }
     .card.picked { outline: 2px solid var(--red); }
-    .card .cat {
-      font-family: var(--mono);
-      font-size: .68rem;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-    }
-    .cat.deportiva { color: var(--red); }
-    .cat.ciudad { color: #1d4e89; }
-    .cat.trabajo { color: #6a4b16; }
-    .watermark {
-      font-family: var(--display);
-      font-size: 5.4rem;
-      line-height: .8;
-      letter-spacing: -.03em;
-      color: transparent;
-      -webkit-text-stroke: 1.5px rgba(20, 18, 16, .28);
-      margin: 10px 0 4px;
-    }
-    .card h3 { font-size: 1.85rem; }
-    .specs { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0; padding: 0; list-style: none; }
-    .specs li { font-family: var(--mono); font-size: .75rem; border: 1px solid var(--line); padding: 4px 7px; }
-    .price { margin-top: auto; font-family: var(--display); font-size: 2.3rem; letter-spacing: .02em; }
-    .price small { display: block; font-family: var(--sans); font-size: .78rem; letter-spacing: 0; color: var(--muted); font-weight: 400; text-transform: none; }
-    .card .actions { margin-top: 12px; }
-    .note { color: var(--muted); font-size: .92rem; margin-top: 16px; }
-
-    .band { background: var(--ink); color: #f3eee6; }
-    .band .eyebrow { color: #ff8b93; }
-    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .steps article { border-top: 1px solid rgba(243, 238, 230, .3); padding-top: 14px; }
-    .steps em { font-family: var(--display); font-style: normal; font-size: 2.4rem; color: var(--red); }
-
-    .split { display: grid; grid-template-columns: .9fr 1.1fr; gap: 28px; align-items: start; }
-    .calc, .form, .visit {
-      background: var(--card);
-      border: 1px solid var(--line);
-      padding: 20px;
-    }
-    label { display: block; font-size: .92rem; margin: 14px 0 6px; }
-    input, select, textarea {
-      width: 100%;
-      background: white;
-      border: 1px solid var(--line);
-      padding: 12px;
-      border-radius: 0;
-    }
-    textarea { min-height: 110px; resize: vertical; }
-    input:focus, select:focus, textarea:focus, button:focus-visible, a:focus-visible {
-      outline: 2px solid var(--red);
-      outline-offset: 2px;
-    }
+    .cat { margin: 0; color: var(--blue); font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .card h3 { margin: 8px 0 4px; font-size: 1.25rem; }
+    .lema { margin: 0; color: var(--muted); min-height: 3em; }
+    .card .specs li { border-color: var(--line); color: var(--ink); }
+    .card .price { margin: 14px 0 0; font-size: 1.8rem; font-weight: 700; color: var(--red); }
+    .card .price small { display: block; color: var(--muted); font-size: .78rem; font-weight: 400; }
+    .card .actions { margin-top: auto; }
+    .note { color: var(--muted); font-size: .92rem; }
+    .band { background: #fff; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .steps article, .aog { background: var(--bg); border-radius: 12px; padding: 18px; }
+    .steps strong { color: var(--blue); }
+    .split { display: grid; grid-template-columns: .9fr 1.1fr; gap: 18px; }
+    .panel { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 18px; }
+    label { display: block; margin: 12px 0 6px; font-weight: 500; }
+    input, select, textarea { width: 100%; border: 1px solid var(--line); border-radius: 6px; padding: 12px; background: #fff; }
+    textarea { min-height: 96px; resize: vertical; }
+    input:focus, select:focus, textarea:focus, button:focus-visible, a:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
     .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .pay {
-      margin-top: 16px;
-      background: var(--ink);
-      color: white;
-      padding: 16px;
-    }
-    .pay strong { font-family: var(--display); font-size: 3.4rem; letter-spacing: .02em; display: block; line-height: 1; }
-    .error { color: var(--red-dark); font-size: .88rem; margin: 4px 0 0; }
-    .fine { color: var(--muted); font-size: .85rem; }
+    .pay { margin-top: 14px; background: var(--blue); color: #fff; border-radius: 12px; padding: 16px; }
+    .pay strong { display: block; font-size: 2.6rem; line-height: 1; }
+    .error { color: var(--red); font-size: .88rem; margin: 4px 0 0; }
     fieldset { border: 0; margin: 0; padding: 0; }
-    legend { font-family: var(--display); font-size: 2rem; text-transform: uppercase; padding: 0; }
-
-    .faq details { border-top: 1px solid var(--line); padding: 12px 0; }
-    .faq summary { cursor: pointer; font-weight: 600; }
-    .faq p { margin: 8px 0 4px; color: var(--muted); }
-    .map { width: 100%; height: 220px; border: 0; filter: grayscale(1) contrast(1.05); }
-    .visit p { margin: 8px 0; }
-
-    footer {
-      background: var(--ink);
-      color: #d9d0c3;
-      padding: 28px 0 40px;
-      font-size: .88rem;
-    }
-    footer .wrap { display: grid; gap: 10px; }
-    footer a { color: white; }
-
-    .compare-bar {
-      position: sticky;
-      bottom: 0;
-      z-index: 9;
-      background: var(--ink);
-      color: white;
-      padding: 12px 0;
-    }
+    footer { background: var(--blue-2); color: #fff; padding: 36px 0 24px; }
+    footer a { color: #fff; }
+    .foot { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 22px; }
+    footer h2 { font-size: 1rem; text-transform: uppercase; }
+    footer ul { list-style: none; margin: 0; padding: 0; }
+    footer li { margin: 6px 0; }
+    .copy { border-top: 1px solid rgba(255,255,255,.25); margin-top: 22px; padding-top: 14px; font-size: .88rem; }
+    .compare-bar { position: sticky; bottom: 0; z-index: 9; background: var(--blue); color: #fff; padding: 12px 0; }
     .compare-bar .wrap { display: flex; justify-content: space-between; gap: 12px; align-items: center; flex-wrap: wrap; }
     .compare-bar p { margin: 0; }
-
-    dialog {
-      width: min(640px, calc(100% - 24px));
-      border: 1px solid var(--ink);
-      background: var(--card);
-      padding: 22px;
-      color: var(--ink);
-    }
-    dialog::backdrop { background: rgba(20, 18, 16, .62); }
-    dialog .head { display: flex; justify-content: space-between; gap: 12px; align-items: start; }
-    .close {
-      border: 1px solid var(--ink);
-      background: transparent;
-      min-width: 44px;
-      min-height: 44px;
-      cursor: pointer;
-    }
-    table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+    .compare-bar .btn { border-color: #fff; color: #fff; background: transparent; }
+    .compare-bar .btn-red { background: var(--red); border-color: var(--red); }
+    dialog { width: min(720px, calc(100% - 24px)); border: 0; border-radius: 12px; padding: 20px; color: var(--ink); }
+    dialog::backdrop { background: rgba(7, 20, 48, .62); }
+    .head { display: flex; justify-content: space-between; gap: 12px; align-items: start; }
+    .close { border: 1px solid var(--line); background: #fff; border-radius: 6px; min-width: 44px; min-height: 44px; cursor: pointer; }
+    .tabs { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0; }
+    .tabs button[aria-selected="true"] { background: var(--blue); color: #fff; }
+    table { width: 100%; border-collapse: collapse; }
     th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
-    #listo textarea { margin: 10px 0; }
-
+    th { width: 42%; color: var(--muted); font-weight: 500; }
     @media (max-width: 860px) {
-      .hero-grid, .grid, .steps, .split, .facts, .row { grid-template-columns: 1fr; }
-      .menu-btn { display: inline-flex; align-items: center; }
-      nav { display: none; position: absolute; left: 0; right: 0; top: 100%; background: var(--bg); border-bottom: 1px solid var(--line); padding: 8px 20px 16px; }
+      .hero-grid, .grid, .steps, .split, .stats, .row, .foot { grid-template-columns: 1fr; }
+      .menu-btn { display: inline-flex; }
+      nav { display: none; position: absolute; inset: 100% 0 auto 0; background: #fff; border-bottom: 1px solid var(--line); padding: 8px 16px 16px; }
       nav.open { display: block; }
-      nav ul { flex-direction: column; gap: 4px; }
+      nav ul { flex-direction: column; }
       nav a { display: flex; min-height: 44px; align-items: center; }
       .section-head { flex-direction: column; align-items: start; }
-      h1 { font-size: clamp(3.4rem, 18vw, 5rem); }
-      .plate { min-height: 0; }
+      .stats article { border-right: 0; border-bottom: 1px solid var(--line); }
     }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .marquee-track { animation: none; }
-      .btn:hover { transform: none; }
-    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   </style>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MotorcycleDealer",
-    "name": "TVS Juárez",
-    "description": "Distribuidora de motos TVS en Ciudad Juárez, Chihuahua.",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Ciudad Juárez",
-      "addressRegion": "Chihuahua",
-      "addressCountry": "MX"
-    },
-    "areaServed": "Ciudad Juárez, Chihuahua"
-  }
-  </script>
 </head>
 <body>
-  <a class="skip" href="#modelos">Saltar al catálogo</a>
-  <div class="topbar">
+  <a class="skip" href="#productos">Saltar a los productos</a>
+  <div class="top">
     <div class="wrap">
-      <span>Ciudad Juárez, Chihuahua</span>
-      <span>Lunes a sábado 10:00–19:00 · Domingo 11:00–15:00 · confirma antes de visitar</span>
+      <span>Ciudad Juárez, Chihuahua · catálogo de TVS México</span>
+      <span>Lunes a sábado 10:00–19:00 · domingo 11:00–15:00</span>
     </div>
   </div>
   <header class="site">
     <div class="wrap nav">
       <a class="brand" href="#inicio">
-        <svg class="mark" viewBox="0 0 36 36" aria-hidden="true">
-          <rect width="36" height="36" fill="#141210"/>
-          <path d="M7 25h22M10.5 25a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm15 0a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zM14 20.5l3.2-6.5h6.4L26.5 20.5" fill="none" stroke="#d10f1c" stroke-width="1.7"/>
-        </svg>
-        <span>
-          <strong>TVS JUÁREZ</strong>
-          <span>Distribuidora de motos</span>
-        </span>
+        <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="8" fill="#0c3688"/><path d="M7 25h22M11 25a4.2 4.2 0 1 1 0-8.4A4.2 4.2 0 0 1 11 25zm14 0a4.2 4.2 0 1 1 0-8.4 4.2 4.2 0 0 1 0 8.4zM14 21l3-6h6.2L26 21" fill="none" stroke="#fff" stroke-width="1.7"/></svg>
+        <span><strong>TVS JUÁREZ</strong><span>Punto de venta</span></span>
       </a>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menú</button>
       <nav id="menu">
         <ul>
-          <li><a href="#modelos">Modelos</a></li>
+          <li><a href="#productos">Productos</a></li>
           <li><a href="#servicio">Servicio</a></li>
-          <li><a href="#credito">Financiamiento</a></li>
-          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#aog">Grupo AOG</a></li>
+          <li><a href="#contacto">Contáctanos</a></li>
         </ul>
       </nav>
     </div>
@@ -363,129 +163,109 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div>
-          <p class="eyebrow">Distribuidora TVS · Chihuahua</p>
-          <h1>Motos TVS en Juárez</h1>
-          <p class="lead">Apache para la ciudad y la carretera, NTORQ para el diario y motos de trabajo para el reparto. Cotiza existencia, arma una prueba de manejo o deja tu moto en servicio.</p>
+          <p class="kicker">TVS México · Ciudad Juárez</p>
+          <h1>Nuestros productos, de este lado de la frontera</h1>
+          <p class="lead">La misma forma de ver el catálogo que en TVS México: deportivas Apache, Ronin, motoneta NTORQ, iQube eléctrica y HLX de trabajo. El precio de lista es el que publica la marca.</p>
           <div class="actions">
-            <a class="btn btn-red" href="#modelos">Ver modelos</a>
-            <a class="btn" href="#contacto">Pedir cotización</a>
-          </div>
-          <div class="facts">
-            <article><strong>Lista con IVA</strong><span>En los modelos que TVS México publica con precio.</span></article>
-            <article><strong>Prueba con cita</strong><span>Eliges modelo y horario desde el formulario.</span></article>
-            <article><strong>Taller y refacciones</strong><span>Servicio para motos TVS, las hayas comprado aquí o no.</span></article>
+            <a class="btn btn-red" href="#productos">Nuestros productos</a>
+            <a class="btn" href="#contacto">Contáctanos</a>
           </div>
         </div>
-        <figure class="plate">
-          <p class="tag">Ficha de piso · Ciudad Juárez</p>
-          <svg class="blueprint" viewBox="0 0 820 420" role="img" aria-label="Dibujo técnico de una moto deportiva">
-            <defs>
-              <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
-                <path d="M32 0H0V32" fill="none" stroke="currentColor" stroke-width=".7"/>
-              </pattern>
-            </defs>
-            <rect width="820" height="420" fill="url(#grid)"/>
-            <g class="bike">
-              <line x1="70" y1="348" x2="760" y2="348"/>
-              <circle cx="210" cy="300" r="78"/>
-              <circle cx="210" cy="300" r="16" class="hot"/>
-              <circle cx="630" cy="300" r="78"/>
-              <circle cx="630" cy="300" r="16" class="hot"/>
-              <path d="M210 300 L330 250 L390 214 L520 168 L600 150"/>
-              <path d="M600 150 L630 300"/>
-              <path d="M560 150 L610 118 L648 126"/>
-              <path d="M250 214 H470 L520 168"/>
-              <path d="M300 214 L250 268 H390 L430 214" class="hot"/>
-              <path d="M330 250 L470 236 L500 268"/>
-              <path d="M250 268 C230 300 200 310 180 292"/>
-              <path d="M390 250 L470 300"/>
-            </g>
-          </svg>
-          <figcaption>
-            <span>Apache · línea deportiva</span>
-            <span>CHIH  ·  JUÁREZ</span>
-          </figcaption>
-        </figure>
-      </div>
-      <div class="marquee" aria-hidden="true">
-        <div class="marquee-track">
-          <span>Apache RTR 160 4V</span><span>Apache RTR 160 4V FI</span><span>Apache RTR 200 4V</span><span>RR 310</span><span>NTORQ 125</span><span>HLX 150</span><span>XL100</span><span>Stryker 125</span><span>Trak 150</span>
-          <span>Apache RTR 160 4V</span><span>Apache RTR 160 4V FI</span><span>Apache RTR 200 4V</span><span>RR 310</span><span>NTORQ 125</span><span>HLX 150</span><span>XL100</span><span>Stryker 125</span><span>Trak 150</span>
-        </div>
+        <article class="feature">
+          <p class="kicker">Ficha destacada</p>
+          <h2>Apache RTR 200 4V</h2>
+          <p>Diseñada para adaptarse</p>
+          <p class="price">$44,990 <small style="font-size:.8rem;font-weight:400">MXN con IVA</small></p>
+          <ul class="specs">
+            <li>197.75 cc</li>
+            <li>20.23 HP</li>
+            <li>5 velocidades</li>
+            <li>SmartXonnect</li>
+          </ul>
+          <div class="actions">
+            <button class="btn btn-red" type="button" id="hero-ficha">Conoce más</button>
+            <a class="btn" href="https://mexico.tvsmotor.com/es/p/our-products/apache-rtr-200-4v-mx" target="_blank" rel="noopener">Ficha TVS México</a>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section id="modelos">
+    <div class="stats wrap" style="border:1px solid var(--line); border-radius:12px; overflow:hidden; margin-top:-18px; position:relative">
+      <article><strong>112 años</strong><span>Trayectoria con la que TVS Motor se presenta.</span></article>
+      <article><strong>Internacional</strong><span>Marca con venta fuera de su país de origen.</span></article>
+      <article><strong>+50 millones</strong><span>Clientes que la marca reporta en su sitio.</span></article>
+    </div>
+
+    <section id="productos">
       <div class="wrap">
         <div class="section-head">
           <div>
-            <p class="eyebrow">01 — Catálogo</p>
-            <h2>Elige la moto</h2>
+            <h2>Nuestros productos</h2>
+            <p>Cada ficha resume la página oficial y enlaza al visor de TVS México. Ahí están las fotos, el giro 360° y el folleto.</p>
           </div>
-          <p>Tres Apache traen el precio de lista publicado por TVS México. El resto se cotiza en piso según año modelo y existencia.</p>
         </div>
-        <div class="filters" role="group" aria-label="Filtrar modelos">
+        <div class="filters" role="group" aria-label="Filtrar productos">
           <button class="btn" type="button" data-filter="todas" aria-pressed="true">Todas</button>
           <button class="btn" type="button" data-filter="deportiva" aria-pressed="false">Deportivas</button>
-          <button class="btn" type="button" data-filter="ciudad" aria-pressed="false">Ciudad</button>
+          <button class="btn" type="button" data-filter="calle" aria-pressed="false">Calle</button>
+          <button class="btn" type="button" data-filter="motoneta" aria-pressed="false">Motonetas</button>
+          <button class="btn" type="button" data-filter="electrica" aria-pressed="false">Eléctricas</button>
           <button class="btn" type="button" data-filter="trabajo" aria-pressed="false">Trabajo</button>
         </div>
         <div class="grid" id="catalogo"></div>
-        <p class="note" id="vacio" hidden>No hay modelos en esta categoría.</p>
-        <p class="note">Precios en pesos mexicanos, con IVA, tomados de las fichas públicas de TVS México para Apache RTR 160 4V ($35,990), Apache RTR 160 4V FI ($51,990) y Apache RTR 200 4V ($44,990). TVS indica que pueden corresponder a los años modelo 2025, 2026 o 2027 y que cambian sin previo aviso. Confirma versión y existencia antes de apartar.</p>
+        <p class="note">Precios sujetos a cambio sin previo aviso. Expresados en pesos mexicanos e incluyen IVA. Pueden corresponder a los años modelo 2025, 2026 o 2027. Confirma versión y existencia en el punto de venta. Fuente: fichas públicas de <a href="https://mexico.tvsmotor.com/es/our-products" target="_blank" rel="noopener">TVS México</a>.</p>
       </div>
     </section>
 
     <section class="band" id="servicio">
       <div class="wrap">
-        <p class="eyebrow">02 — Después de la compra</p>
-        <h2>Servicio en la misma ciudad</h2>
-        <div class="steps" style="margin-top:28px">
+        <div class="section-head">
+          <div>
+            <h2>Servicio</h2>
+            <p>Posventa en Juárez para motos TVS: mantenimiento, garantía de fábrica y refacciones de línea.</p>
+          </div>
+          <a class="btn" href="https://mexico.tvsmotor.com/es/mantenimiento" target="_blank" rel="noopener">Tabla de mantenimiento</a>
+        </div>
+        <div class="steps">
           <article>
-            <em>01</em>
+            <strong>01</strong>
             <h3>Mantenimiento</h3>
-            <p>Afinación, frenos, transmisión y servicio por kilometraje. Agenda con el mismo formulario y di que es para taller.</p>
+            <p>Afinación y servicio por kilometraje. La tabla de intervalos está en el sitio de TVS México; la cita se pide aquí.</p>
           </article>
           <article>
-            <em>02</em>
+            <strong>02</strong>
             <h3>Garantía</h3>
-            <p>Las motos nuevas salen con garantía de fábrica. Trae la orden y el manual cuando pidas una revisión de garantía.</p>
+            <p>Las unidades nuevas salen con garantía de fábrica. Para una revisión trae la póliza y el registro de servicios.</p>
           </article>
           <article>
-            <em>03</em>
+            <strong>03</strong>
             <h3>Refacciones</h3>
-            <p>Pide piezas de línea TVS por modelo. Si hay que pedirlas a centro de distribución, te decimos el tiempo al confirmar.</p>
+            <p>Piezas de la marca según el modelo. Si hay que pedirlas a distribución, el tiempo se confirma al cotizar.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="credito">
+    <section id="aog">
+      <div class="wrap aog">
+        <h2>Grupo AOG</h2>
+        <p>Apache Owner's Group es la comunidad de dueños de Apache que TVS publica en México: salidas en grupo y una red de propietarios de la serie RTR. No es un club del piso de Juárez.</p>
+        <a class="btn btn-blue" href="https://mexico.tvsmotor.com/es/aog-group" target="_blank" rel="noopener">Ver TVS AOG</a>
+      </div>
+    </section>
+
+    <section id="credito" class="band">
       <div class="wrap split">
         <div>
-          <p class="eyebrow">03 — Enganche</p>
           <h2>Simula el mensual</h2>
-          <p class="lead">Una cuenta ilustrativa para llegar a piso con un número en la cabeza. No incluye seguro, comisión ni aprobación.</p>
-          <div class="faq" style="margin-top:22px">
-            <details>
-              <summary>¿El precio de lista es el de contado?</summary>
-              <p>Es el precio publicado por TVS México, con IVA. El piso puede tener promociones, costo de emplacado o accesorios aparte.</p>
-            </details>
-            <details>
-              <summary>¿La mensualidad ya está aprobada?</summary>
-              <p>No. La tasa de ejemplo es 28% anual fija. La financiera real define tasa, enganche y plazo después de revisar el crédito.</p>
-            </details>
-            <details>
-              <summary>¿Puedo traer una moto que compré en otro lado?</summary>
-              <p>Sí. El taller atiende motos TVS para servicio y refacciones, aunque la hayas comprado con otro distribuidor.</p>
-            </details>
-          </div>
+          <p class="lead">Misma idea que una comparación de financiamiento: un número de ejemplo antes de pasar tus datos. No incluye seguro ni aprobación.</p>
+          <p class="note">Tasa de ejemplo: 28% anual. No es una oferta de crédito. La financiera define la tasa real.</p>
         </div>
-        <form class="calc" id="simulador">
+        <form class="panel" id="simulador">
           <label for="sim-modelo">Modelo</label>
           <select id="sim-modelo"></select>
           <label for="sim-precio">Precio a simular (MXN)</label>
-          <input id="sim-precio" name="precio" type="number" min="1000" step="1" inputmode="numeric" required>
+          <input id="sim-precio" type="number" min="1000" step="1" inputmode="numeric" required>
           <div class="row">
             <div>
               <label for="sim-enganche">Enganche: <span id="enganche-label">20%</span></label>
@@ -502,35 +282,34 @@
             </div>
           </div>
           <div class="pay" aria-live="polite">
-            <span class="fine">Mensualidad de ejemplo</span>
+            <span>Mensualidad de ejemplo</span>
             <strong id="mensualidad">—</strong>
-            <span id="desglose" class="fine"></span>
+            <span id="desglose"></span>
           </div>
-          <p class="fine">Tasa de ejemplo: 28% anual. No es una oferta de crédito. El monto final lo da la financiera.</p>
         </form>
       </div>
     </section>
 
-    <section id="contacto" style="padding-top:0">
+    <section id="contacto">
       <div class="wrap split">
-        <form class="form" id="cotizacion">
+        <form class="panel" id="cotizacion">
           <fieldset>
-            <legend>Pide informes</legend>
-            <p class="fine">Arma el mensaje con lo que necesitas. Al enviarlo queda listo para copiar y mandar al piso.</p>
+            <h2>Contáctanos</h2>
+            <p class="note">Déjanos tus datos. El mensaje queda listo para enviarlo al piso de venta en Ciudad Juárez.</p>
             <label for="nombre">Nombre</label>
             <input id="nombre" name="nombre" autocomplete="name" required>
             <p class="error" id="err-nombre" hidden></p>
-            <label for="telefono">WhatsApp o teléfono (10 dígitos)</label>
+            <label for="telefono">Teléfono (10 dígitos)</label>
             <input id="telefono" name="telefono" inputmode="tel" autocomplete="tel" required>
             <p class="error" id="err-telefono" hidden></p>
             <div class="row">
               <div>
                 <label for="modelo">Modelo</label>
-                <select id="modelo" name="modelo" required></select>
+                <select id="modelo" required></select>
               </div>
               <div>
                 <label for="motivo">Motivo</label>
-                <select id="motivo" name="motivo">
+                <select id="motivo">
                   <option>Cotización</option>
                   <option>Prueba de manejo</option>
                   <option>Servicio o refacciones</option>
@@ -538,28 +317,26 @@
               </div>
             </div>
             <label for="comentario">Comentario</label>
-            <textarea id="comentario" name="comentario" placeholder="Horario en el que puedes venir, color o duda de crédito."></textarea>
+            <textarea id="comentario" placeholder="Horario, color o duda de crédito."></textarea>
             <div class="actions">
-              <button class="btn btn-red" type="submit">Armar mensaje</button>
+              <button class="btn btn-red" type="submit">Enviar datos</button>
             </div>
           </fieldset>
           <div id="listo" hidden>
-            <h3>Mensaje listo</h3>
-            <p>Cópialo y envíalo por WhatsApp al piso de venta.</p>
+            <h2>Listo</h2>
+            <p>Copia el mensaje y envíalo por WhatsApp al piso de venta.</p>
             <textarea id="mensaje-listo" readonly></textarea>
-            <button class="btn btn-dark" id="copiar" type="button">Copiar mensaje</button>
+            <button class="btn btn-blue" id="copiar" type="button">Copiar mensaje</button>
             <p id="copiado" role="status"></p>
             <button class="btn" id="otra" type="button">Escribir otra solicitud</button>
           </div>
         </form>
-        <aside class="visit">
-          <p class="eyebrow">04 — Piso de venta</p>
-          <h2>Ciudad Juárez</h2>
-          <p>Atendemos en Ciudad Juárez, Chihuahua. El domicilio de la calle y el teléfono se confirman al agendar, para no publicarlos incompletos.</p>
+        <aside class="panel">
+          <h2>Piso de venta</h2>
+          <p>Ciudad Juárez, Chihuahua. La calle y el teléfono se confirman al agendar.</p>
           <p><strong>Horario de referencia</strong><br>Lunes a sábado, 10:00 a 19:00.<br>Domingo, 11:00 a 15:00.</p>
-          <p class="fine">Llega con identificación si vas a una prueba de manejo. Para garantía, trae la póliza y el registro de servicios.</p>
-          <iframe class="map" title="Mapa de Ciudad Juárez, Chihuahua" loading="lazy" referrerpolicy="no-referrer" src="https://www.openstreetmap.org/export/embed.html?bbox=-106.58%2C31.62%2C-106.28%2C31.80&amp;layer=mapnik"></iframe>
-          <p class="fine">El mapa muestra la ciudad, no un punto de venta todavía.</p>
+          <p class="note">Casa matriz publicada por TVS México: Grupo Motomex, Pino Suárez 750, Centro, Monterrey, N.L. · <a href="tel:528182182838">81 8218 2838</a> · <a href="mailto:customercare@tvsmotor.com">customercare@tvsmotor.com</a></p>
+          <iframe title="Mapa de Ciudad Juárez, Chihuahua" loading="lazy" referrerpolicy="no-referrer" style="width:100%;height:200px;border:0;border-radius:8px" src="https://www.openstreetmap.org/export/embed.html?bbox=-106.58%2C31.62%2C-106.28%2C31.80&amp;layer=mapnik"></iframe>
         </aside>
       </div>
     </section>
@@ -567,18 +344,43 @@
 
   <footer>
     <div class="wrap">
-      <strong>TVS JUÁREZ</strong>
-      <p>Distribuidora de motos en Ciudad Juárez, Chihuahua. TVS, Apache, NTORQ, HLX, XL, Stryker, Trak y RR son marcas de sus titulares. Esta página no sustituye la ficha oficial ni una cotización firmada.</p>
-      <p>Casa matriz publicada por TVS México: Grupo Motomex, Pino Suárez 750, Centro, Monterrey, N.L. · 81 8218 2838 · customercare@tvsmotor.com</p>
+      <div class="foot">
+        <div>
+          <h2>Enlaces útiles</h2>
+          <ul>
+            <li><a href="#productos">Nuestros productos</a></li>
+            <li><a href="#servicio">Servicio</a></li>
+            <li><a href="https://mexico.tvsmotor.com/es/aog-group" target="_blank" rel="noopener">TVS AOG</a></li>
+            <li><a href="https://mexico.tvsmotor.com/es/mantenimiento" target="_blank" rel="noopener">Tabla de mantenimiento</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Casa matriz de TVS</h2>
+          <ul>
+            <li>Grupo Motomex, Pino Suárez 750, Centro, Monterrey, N.L.</li>
+            <li><a href="tel:528182182838">81 8218 2838</a></li>
+            <li><a href="mailto:customercare@tvsmotor.com">customercare@tvsmotor.com</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Sigue a TVS México</h2>
+          <ul>
+            <li><a href="https://www.facebook.com/TVSMotorMexico" target="_blank" rel="noopener">Facebook</a></li>
+            <li><a href="https://www.instagram.com/tvsmotormexico/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.youtube.com/@tvsdemexico" target="_blank" rel="noopener">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="copy">TVS Juárez es un punto de venta en Ciudad Juárez. TVS, Apache, Ronin, NTORQ, iQube y HLX son marcas de sus titulares. Esta página no sustituye la ficha oficial.</p>
     </div>
   </footer>
 
   <div class="compare-bar" id="compare-bar" hidden>
     <div class="wrap">
-      <p id="compare-text">Comparar</p>
+      <p id="compare-text"></p>
       <div class="actions" style="margin:0">
-        <button class="btn btn-red" id="abrir-comparacion" type="button">Ver comparación</button>
-        <button class="btn" id="limpiar-comparacion" type="button" style="color:white;border-color:white">Quitar</button>
+        <button class="btn btn-red" id="abrir-comparacion" type="button">Comparar</button>
+        <button class="btn" id="limpiar-comparacion" type="button">Quitar</button>
       </div>
     </div>
   </div>
@@ -586,86 +388,98 @@
   <dialog id="ficha">
     <div class="head">
       <div>
-        <p class="eyebrow" id="ficha-cat"></p>
-        <h3 id="ficha-nombre"></h3>
+        <p class="cat" id="ficha-cat"></p>
+        <h2 id="ficha-nombre"></h2>
+        <p id="ficha-lema" class="note"></p>
       </div>
       <button class="close" type="button" data-close aria-label="Cerrar ficha">×</button>
     </div>
-    <p id="ficha-precio" class="price"></p>
-    <ul id="ficha-puntos"></ul>
+    <p class="price" id="ficha-precio" style="color:var(--red);font-size:2rem;font-weight:700;margin:8px 0"></p>
+    <div class="tabs" id="ficha-tabs" role="tablist"></div>
     <table id="ficha-tabla"></table>
+    <ul id="ficha-puntos"></ul>
     <div class="actions">
       <button class="btn btn-red" id="ficha-cotizar" type="button">Cotizar este modelo</button>
+      <a class="btn" id="ficha-oficial" href="#" target="_blank" rel="noopener">Ficha TVS México</a>
     </div>
   </dialog>
 
   <dialog id="comparacion">
     <div class="head">
-      <h3>Comparación</h3>
+      <h2>Comparar</h2>
       <button class="close" type="button" data-close aria-label="Cerrar comparación">×</button>
     </div>
-    <div style="overflow-x:auto">
-      <table id="tabla-comparacion"></table>
-    </div>
+    <div style="overflow-x:auto"><table id="tabla-comparacion"></table></div>
   </dialog>
 
   <script>
-    /* Datos del piso. Cuando tengas el número, pon whatsapp con lada 521 y 10 dígitos, sin espacios: "5216561234567". */
-    const PISO = {
-      nombre: "TVS Juárez",
-      ciudad: "Ciudad Juárez, Chihuahua",
-      whatsapp: ""
-    };
-
+    const PISO = { nombre: "TVS Juárez", ciudad: "Ciudad Juárez, Chihuahua", whatsapp: "" };
+    const etiquetas = { deportiva: "Deportiva", calle: "Calle", motoneta: "Motoneta", electrica: "Eléctrica", trabajo: "Trabajo" };
     const MODELOS = [
-      { id: "rtr160", nombre: "Apache RTR 160 4V", categoria: "deportiva", cifra: "160", precio: 35990, origen: "Lista TVS México", cc: "159.7 cc", potencia: "16.28 HP @ 8,000 rpm", torque: "14.8 Nm @ 6,500 rpm", transmision: "5 velocidades", motor: "4 tiempos, 4 válvulas, refrigerado por aceite", uso: "Ciudad y carretera", puntos: ["Monoshock", "Faro LED", "Tablero digital", "Escape de doble barril"], chips: ["159.7 cc", "16.28 HP", "5 velocidades"] },
-      { id: "rtr160fi", nombre: "Apache RTR 160 4V FI", categoria: "deportiva", cifra: "160", precio: 51990, origen: "Lista TVS México", cc: "159.7 cc", potencia: "16.3 HP @ 8,000 rpm", torque: "14.8 Nm @ 6,500 rpm", transmision: "5 velocidades", motor: "Inyección Bosch, 4 válvulas, refrigerado por aceite", uso: "Modos Sport, Urbano y Lluvia", puntos: ["SmartXonnect", "114 km/h en modo Sport, según ficha TVS", "103 km/h en Urbano y Lluvia, según ficha TVS"], chips: ["159.7 cc", "Inyección", "5 velocidades"] },
-      { id: "rtr200", nombre: "Apache RTR 200 4V", categoria: "deportiva", cifra: "200", precio: 44990, origen: "Lista TVS México", cc: "197.75 cc", potencia: "20.23 HP @ 8,500 rpm", torque: "18.1 Nm @ 7,000 rpm", transmision: "5 velocidades", motor: "4 tiempos, 4 válvulas, refrigerado por aceite", uso: "Deportiva", puntos: ["Asiento a 800 mm", "Tanque de 12 L", "Peso en orden de marcha: 149 kg", "Discos 270 mm delante y 240 mm atrás", "SmartXonnect y faro LED"], chips: ["197.75 cc", "20.23 HP", "5 velocidades"] },
-      { id: "rr310", nombre: "Apache RR 310", categoria: "deportiva", cifra: "310", precio: null, origen: "Se cotiza en piso", cc: "312 cc", potencia: "Se confirma con la ficha del año", torque: "Se confirma con la ficha del año", transmision: "Caja manual", motor: "Deportiva de mayor cilindrada de la línea", uso: "Carretera", puntos: ["Disponibilidad según el año modelo en piso", "Precio de contado al cotizar"], chips: ["312 cc", "Deportiva", "Cotizar"] },
-      { id: "ntorq", nombre: "NTORQ 125", categoria: "ciudad", cifra: "125", precio: null, origen: "Se cotiza en piso", cc: "125 cc", potencia: "Según versión", torque: "Según versión", transmision: "Automática", motor: "Motoneta", uso: "Tráfico y trayectos diarios", puntos: ["Versiones Race según existencia", "Tablero y conectividad según el equipo de la unidad"], chips: ["125 cc", "Automática", "Motoneta"] },
-      { id: "stryker", nombre: "Stryker 125", categoria: "ciudad", cifra: "125", precio: null, origen: "Se cotiza en piso", cc: "125 cc", potencia: "Se confirma con la ficha del año", torque: "Se confirma con la ficha del año", transmision: "Se confirma con la ficha del año", motor: "Uso urbano", uso: "Ciudad", puntos: ["Para el diario", "Precio según inventario"], chips: ["125 cc", "Ciudad", "Cotizar"] },
-      { id: "hlx", nombre: "HLX 150", categoria: "trabajo", cifra: "150", precio: null, origen: "Se cotiza en piso", cc: "150 cc", potencia: "Se confirma con la ficha del año", torque: "Se confirma con la ficha del año", transmision: "5 velocidades en la versión 5 Gear", motor: "Trabajo y reparto", uso: "Negocio y carga ligera", puntos: ["Mantenimiento de línea TVS", "Confirma capacidad de carga de la unidad"], chips: ["150 cc", "Trabajo", "5 velocidades"] },
-      { id: "xl100", nombre: "XL100 Heavy Duty", categoria: "trabajo", cifra: "100", precio: null, origen: "Se cotiza en piso", cc: "100 cc", potencia: "Se confirma con la ficha del año", torque: "Se confirma con la ficha del año", transmision: "Se confirma con la ficha del año", motor: "Trabajo ligero", uso: "Carga y distancias cortas", puntos: ["Pensada para trabajo", "Versión Heavy Duty según existencia"], chips: ["100 cc", "Carga", "Heavy Duty"] },
-      { id: "trak", nombre: "Trak 150", categoria: "trabajo", cifra: "150", precio: null, origen: "Se cotiza en piso", cc: "150 cc", potencia: "Se confirma con la ficha del año", torque: "Se confirma con la ficha del año", transmision: "Se confirma con la ficha del año", motor: "Uso rudo diario", uso: "Reparto", puntos: ["Para quien trabaja en la moto", "Refacciones bajo pedido si no hay en anaquel"], chips: ["150 cc", "Reparto", "Cotizar"] }
+      { id: "rtr160", nombre: "Apache RTR 160 4V", categoria: "deportiva", lema: "Evolución del rendimiento", precio: 35990, cc: "159.7 cc", potencia: "16.28 HP", transmision: "5 velocidades", chips: ["159.7 cc", "16.28 HP", "5 velocidades"], url: "https://mexico.tvsmotor.com/es/p/our-products/apache-rtr-160-4v-mx", puntos: ["Monoshock", "Faro LED", "Tablero digital"], grupos: { Motor: [["Potencia", "16.28 HP @ 8,000 rpm"], ["Torque", "14.8 Nm @ 6,500 rpm"], ["Cilindrada", "159.7 cc"], ["Tipo", "4 tiempos, 4 válvulas, refrigerado por aceite"], ["Caja", "5 velocidades"], ["Arranque", "Eléctrico"]] } },
+      { id: "rtr160fi", nombre: "Apache RTR 160 4V FI", categoria: "deportiva", lema: "#Invencible", precio: 51990, cc: "159.7 cc", potencia: "16.3 HP", transmision: "5 velocidades", chips: ["Inyección", "16.3 HP", "Modos de manejo"], url: "https://mexico.tvsmotor.com/es/p/our-products/apache-rtr-160-4v-fi-mx", puntos: ["Inyección Bosch", "SmartXonnect", "Modos Sport, Urbano y Lluvia"], grupos: { Motor: [["Potencia", "16.3 HP @ 8,000 rpm"], ["Torque", "14.8 Nm @ 6,500 rpm"], ["Cilindrada", "159.7 cc"], ["Inyección", "Bosch, circuito cerrado"], ["Velocidad", "114 km/h en Sport; 103 km/h en Urbano y Lluvia"], ["Caja", "5 velocidades"]] } },
+      { id: "rtr200", nombre: "Apache RTR 200 4V", categoria: "deportiva", lema: "Diseñada para adaptarse", precio: 44990, cc: "197.75 cc", potencia: "20.23 HP", transmision: "5 velocidades", chips: ["197.75 cc", "20.23 HP", "SmartXonnect"], url: "https://mexico.tvsmotor.com/es/p/our-products/apache-rtr-200-4v-mx", puntos: ["Faro LED en forma de garra", "Escape de doble salida", "Llantas radiales"], grupos: { Motor: [["Potencia", "20.23 HP @ 8,500 rpm"], ["Torque", "18.1 Nm @ 7,000 rpm"], ["Cilindrada", "197.75 cc"], ["Válvulas", "4"], ["Tipo", "4 tiempos, refrigerado por aceite"]], Chasis: [["Suspensión trasera", "Monoshock monotubo"], ["Cuadro", "Doble cuna dividida"]], Frenos: [["Delantero", "Disco 270 mm"], ["Trasero", "Disco 240 mm"], ["Llantas", "90/90-17 y 130/70-17"]], Dimensiones: [["Asiento", "800 mm"], ["Tanque", "12 L"], ["Peso", "149 kg"], ["Largo", "2,050 mm"]] } },
+      { id: "rr310", nombre: "Apache RR 310", categoria: "deportiva", lema: "Diseñada para superar", precio: 125990, cc: "312.2 cc", potencia: "33.5 HP", transmision: "Modos de manejo", chips: ["312.2 cc", "33.5 HP", "ABS doble canal"], url: "https://mexico.tvsmotor.com/es/p/our-products/apache-rr-310-mx", puntos: ["Acelerador electrónico", "Michelin Road 5", "Suspensión KYB", "TFT de 5 pulgadas"], grupos: { Motor: [["Potencia", "33.5 HP a 9,700 rpm en modo deportivo y carrera"], ["Potencia urbana", "25.8 HP a 7,600 rpm"], ["Torque", "27.3 Nm a 7,700 rpm en modo deportivo"], ["Cilindrada", "312.2 cc"], ["Tipo", "4 tiempos, 4 válvulas, refrigerado por líquido"], ["Inyección", "Bosch RT-FI"], ["0-100 km/h", "7.17 s"], ["Velocidad máxima", "160 km/h en modo deportivo y carrera"]], Frenos: [["ABS", "Doble canal"], ["Delantero", "Disco 300 mm"], ["Trasero", "Disco 240 mm"], ["Llantas", "Michelin Road 5, 110/70 y 150/60 ZR17"]], Dimensiones: [["Asiento", "810 mm"], ["Tanque", "11 L"], ["Peso", "174 kg"], ["Distancia al suelo", "180 mm"]] } },
+      { id: "rtr310", nombre: "Apache RTR 310", categoria: "deportiva", lema: "#Freestyler", precio: 128990, cc: "312.12 cc", potencia: "33.54 HP", transmision: "6 velocidades", chips: ["312.12 cc", "6 velocidades", "Modo Supermoto"], url: "https://mexico.tvsmotor.com/es/p/our-products/apache-rtr-310", puntos: ["Control de crucero y control de tracción", "GTT", "Faros Bi-LED", "TFT de 5 pulgadas"], grupos: { Motor: [["Potencia", "33.54 HP"], ["Modo pista", "35.6 PS @ 9,700 rpm"], ["Torque", "28.7 Nm @ 6,650 rpm en modo deportivo, pista y Supermoto"], ["Cilindrada", "312.12 cc"], ["Caja", "6 velocidades"], ["Enfriamiento", "Líquido"], ["0-100 km/h", "7.19 s"], ["Velocidad máxima", "150 km/h"]], Frenos: [["ABS", "Doble canal"], ["Delantero", "Disco 300 mm"], ["Trasero", "Disco 240 mm"]], Dimensiones: [["Peso", "169 kg"], ["Tanque", "11 L"], ["Distancia al suelo", "180 mm"]] } },
+      { id: "ronin", nombre: "Ronin 225", categoria: "calle", lema: "Conduce tu propia historia", precio: 62990, cc: "225 cc", potencia: "20.1 HP", transmision: "Caja manual", chips: ["225 cc", "20.1 HP", "ABS doble canal"], url: "https://mexico.tvsmotor.com/es/p/our-products/ronin", puntos: ["Suspensión delantera USD", "GTT", "Tablero digital conectado", "Tanque de 14 L"], grupos: { Motor: [["Potencia", "20.1 HP @ 7,750 rpm"], ["Torque", "19.93 Nm a 3,750 rpm"], ["Cilindrada", "225 cc"], ["Tipo", "4 tiempos, 4 válvulas, SOHC, refrigerado por aceite"]], Chasis: [["Suspensión trasera", "Mono shock, precarga de 7 pasos"], ["Suspensión delantera", "USD de 41 mm"]], Frenos: [["Delantero", "Disco 300 mm con ABS de doble canal"], ["Trasero", "Disco 240 mm"], ["Llantas", "110/70-17 y 130/70-17"]], Dimensiones: [["Asiento", "795 mm"], ["Tanque", "14 L"], ["Peso", "160 kg"], ["Distancia al suelo", "181 mm"]] } },
+      { id: "ntorq", nombre: "NTORQ 125 RE", categoria: "motoneta", lema: "Edición competición", precio: 32990, cc: "124.79 cc", potencia: "9.25 HP", transmision: "Automática", chips: ["124.79 cc", "9.25 HP", "SmartXonnect"], url: "https://mexico.tvsmotor.com/es/p/our-products/ntorq-125-re-mx", puntos: ["Consola digital", "Faro LED", "Más de 60 funciones conectadas, según TVS"], grupos: { Motor: [["Potencia", "9.25 HP @ 7,500 rpm"], ["Torque", "10.5 Nm @ 5,500 rpm"], ["Cilindrada", "124.79 cc"], ["Tipo", "1 cilindro, 4 tiempos, refrigerado por aire"], ["Transmisión", "Automática"]], Frenos: [["Delantero", "Disco 220 mm"], ["Trasero", "Tambor 130 mm"], ["Llantas", "100/80-12 y 110/80-12"]], Dimensiones: [["Peso", "118 kg"], ["Tanque", "5.0 L"], ["Distancia al suelo", "155 mm"], ["Medidas", "1,865 x 710 x 1,160 mm"]] } },
+      { id: "iqube", nombre: "iQube S", categoria: "electrica", lema: "Motoneta eléctrica", precio: 82990, cc: "Eléctrica", potencia: "4.8 kW", transmision: "Directa", chips: ["Hasta 100 km", "4.8 kW", "TFT"], url: "https://mexico.tvsmotor.com/es/p/our-products/iqube-s-mx", puntos: ["0 a 40 km/h en 4.2 s", "Reversa", "Batería 3.04 kWh", "Cargador portátil"], grupos: { Motor: [["Potencia máxima", "4.8 kW"], ["Potencia nominal", "3 kW"], ["Torque máximo", "140 Nm"], ["Velocidad máxima", "78 km/h"], ["0-40 km/h", "4.2 s"], ["Autonomía", "100 km en modo económico; 75 km en modo potencia"]], Batería: [["Tipo", "Iones de litio"], ["Capacidad útil", "3.04 kWh"], ["Carga al 80%", "5 h 9 min con cargador de 580 W"], ["Protección", "IP67"]], Dimensiones: [["Asiento", "770 mm"], ["Peso", "118.8 kg"], ["Espacio bajo el asiento", "32 L"], ["Medidas", "1,805 x 645 x 1,140 mm"]] } },
+      { id: "hlx", nombre: "HLX 150 5 velocidades", categoria: "trabajo", lema: "La compañera del progreso", precio: null, cc: "147.49 cc", potencia: "11.93 HP", transmision: "5 velocidades", chips: ["147.49 cc", "11.93 HP", "Carga"], url: "https://mexico.tvsmotor.com/es/p/our-products/hlx-150-5-gear", puntos: ["Arranque eléctrico y a pedal", "Puerto USB", "Parrilla de carga", "TVS no publica precio de lista en esta ficha"], grupos: { Motor: [["Potencia", "11.93 HP @ 7,500 rpm"], ["Torque", "12.3 Nm @ 5,000 rpm"], ["Cilindrada", "147.49 cc"], ["Caja", "5 velocidades"], ["Arranque", "Eléctrico y a pedal"], ["Tipo", "4 tiempos, refrigerado por aire"]], Dimensiones: [["Asiento", "834 mm"], ["Tanque", "12 L"], ["Peso", "122 kg"], ["Distancia al suelo", "195 mm"], ["Largo", "2,040 mm"]], Frenos: [["Delantero", "Tambor 130 mm"], ["Trasero", "Tambor 130 mm"]] } }
     ];
 
     const pesos = new Intl.NumberFormat("es-MX", { style: "currency", currency: "MXN", maximumFractionDigits: 0 });
-    const etiquetas = { deportiva: "Deportiva", ciudad: "Ciudad", trabajo: "Trabajo" };
     const catalogo = document.querySelector("#catalogo");
     const comparado = [];
     let filtro = "todas";
     let fichaActual = null;
+    let grupoActual = "";
 
-    function precioTexto(modelo) {
-      return modelo.precio ? pesos.format(modelo.precio) : "Cotizar";
-    }
+    function precioTexto(m) { return m.precio ? pesos.format(m.precio) : "Cotizar"; }
+    function buscar(id) { return MODELOS.find((m) => m.id === id); }
 
     function pintarCatalogo() {
       const lista = MODELOS.filter((m) => filtro === "todas" || m.categoria === filtro);
-      document.querySelector("#vacio").hidden = lista.length > 0;
       catalogo.innerHTML = lista.map((m) => `
         <article class="card${comparado.includes(m.id) ? " picked" : ""}">
-          <p class="cat ${m.categoria}">${etiquetas[m.categoria]}</p>
-          <p class="watermark">${m.cifra}</p>
+          <p class="cat">${etiquetas[m.categoria]}</p>
           <h3>${m.nombre}</h3>
-          <ul class="specs">
-            ${(m.chips || [m.cc, m.transmision, m.potencia]).map((chip) => `<li>${chip}</li>`).join("")}
-          </ul>
-          <p class="price">${precioTexto(m)}<small>${m.origen}</small></p>
+          <p class="lema">${m.lema}</p>
+          <ul class="specs">${m.chips.map((c) => `<li>${c}</li>`).join("")}</ul>
+          <p class="price">${precioTexto(m)}<small>${m.precio ? "Lista TVS México" : "Precio en piso"}</small></p>
           <div class="actions">
-            <button class="btn btn-dark" type="button" data-ficha="${m.id}">Ver ficha</button>
+            <button class="btn btn-blue" type="button" data-ficha="${m.id}">Conoce más</button>
             <button class="btn" type="button" data-comparar="${m.id}" aria-pressed="${comparado.includes(m.id)}">${comparado.includes(m.id) ? "En comparación" : "Comparar"}</button>
           </div>
-        </article>
-      `).join("");
+        </article>`).join("");
     }
 
-    function llenarSelects() {
-      const opciones = MODELOS.map((m) => `<option value="${m.id}">${m.nombre}</option>`).join("");
-      document.querySelector("#sim-modelo").innerHTML = opciones;
-      document.querySelector("#modelo").innerHTML = opciones;
-      const primero = MODELOS.find((m) => m.precio);
-      document.querySelector("#sim-precio").value = primero.precio;
+    function pintarGrupo() {
+      const filas = fichaActual.grupos[grupoActual] || [];
+      document.querySelector("#ficha-tabla").innerHTML = filas.map(([k, v]) => `<tr><th>${k}</th><td>${v}</td></tr>`).join("");
+      document.querySelectorAll("#ficha-tabs button").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.grupo === grupoActual)));
+    }
+
+    function abrirFicha(id) {
+      fichaActual = buscar(id);
+      grupoActual = Object.keys(fichaActual.grupos)[0];
+      document.querySelector("#ficha-cat").textContent = etiquetas[fichaActual.categoria];
+      document.querySelector("#ficha-nombre").textContent = fichaActual.nombre;
+      document.querySelector("#ficha-lema").textContent = fichaActual.lema;
+      document.querySelector("#ficha-precio").textContent = precioTexto(fichaActual);
+      document.querySelector("#ficha-puntos").innerHTML = fichaActual.puntos.map((p) => `<li>${p}</li>`).join("");
+      document.querySelector("#ficha-tabs").innerHTML = Object.keys(fichaActual.grupos).map((g) => `<button class="btn" type="button" role="tab" data-grupo="${g}">${g}</button>`).join("");
+      document.querySelector("#ficha-oficial").href = fichaActual.url;
+      pintarGrupo();
+      document.querySelector("#ficha").showModal();
+    }
+
+    function actualizarComparacion() {
+      const bar = document.querySelector("#compare-bar");
+      bar.hidden = comparado.length === 0;
+      const nombres = comparado.map((id) => buscar(id).nombre);
+      document.querySelector("#compare-text").textContent = comparado.length === 1 ? `${nombres[0]}. Elige otra para comparar.` : nombres.join("  ·  ");
+      document.querySelector("#abrir-comparacion").disabled = comparado.length < 2;
+      pintarCatalogo();
     }
 
     function mensualidad(monto, enganchePct, meses) {
@@ -687,47 +501,14 @@
       }
       const { principal, cuota } = mensualidad(precio, enganche, meses);
       document.querySelector("#mensualidad").textContent = pesos.format(Math.round(cuota));
-      document.querySelector("#desglose").textContent = `${meses} meses · a financiar ${pesos.format(Math.round(principal))} · enganche ${pesos.format(Math.round(precio - principal))}`;
+      document.querySelector("#desglose").textContent = `${meses} meses · a financiar ${pesos.format(Math.round(principal))}`;
     }
 
-    function abrirFicha(id) {
-      const m = MODELOS.find((item) => item.id === id);
-      fichaActual = m;
-      document.querySelector("#ficha-cat").textContent = etiquetas[m.categoria];
-      document.querySelector("#ficha-nombre").textContent = m.nombre;
-      document.querySelector("#ficha-precio").innerHTML = `${precioTexto(m)}<small>${m.origen}</small>`;
-      document.querySelector("#ficha-puntos").innerHTML = m.puntos.map((p) => `<li>${p}</li>`).join("");
-      const filas = [["Uso", m.uso], ["Motor", m.motor], ["Cilindrada", m.cc], ["Potencia", m.potencia], ["Torque", m.torque], ["Transmisión", m.transmision]];
-      document.querySelector("#ficha-tabla").innerHTML = filas.map(([k, v]) => `<tr><th>${k}</th><td>${v}</td></tr>`).join("");
-      document.querySelector("#ficha").showModal();
-    }
-
-    function actualizarComparacion() {
-      const bar = document.querySelector("#compare-bar");
-      bar.hidden = comparado.length === 0;
-      const nombres = comparado.map((id) => MODELOS.find((m) => m.id === id).nombre);
-      document.querySelector("#compare-text").textContent = comparado.length === 1
-        ? `${nombres[0]}. Elige otra para comparar.`
-        : nombres.join("  ·  ");
-      document.querySelector("#abrir-comparacion").disabled = comparado.length < 2;
-      pintarCatalogo();
-    }
-
-    function mensajeSolicitud() {
-      const nombre = document.querySelector("#nombre").value.trim();
-      const telefono = document.querySelector("#telefono").value.trim();
-      const modelo = MODELOS.find((m) => m.id === document.querySelector("#modelo").value);
-      const motivo = document.querySelector("#motivo").value;
-      const comentario = document.querySelector("#comentario").value.trim();
-      return [
-        `Hola, soy ${nombre}.`,
-        `Quiero información de ${PISO.nombre} (${PISO.ciudad}).`,
-        `Motivo: ${motivo}.`,
-        `Modelo: ${modelo.nombre}.`,
-        `Mi teléfono: ${telefono}.`,
-        comentario ? `Comentario: ${comentario}.` : ""
-      ].filter(Boolean).join(" ");
-    }
+    const opciones = MODELOS.map((m) => `<option value="${m.id}">${m.nombre}</option>`).join("");
+    document.querySelector("#sim-modelo").innerHTML = opciones;
+    document.querySelector("#modelo").innerHTML = opciones;
+    document.querySelector("#sim-modelo").value = "rtr200";
+    document.querySelector("#sim-precio").value = 44990;
 
     document.querySelector(".filters").addEventListener("click", (event) => {
       const boton = event.target.closest("button");
@@ -736,7 +517,6 @@
       document.querySelectorAll(".filters button").forEach((b) => b.setAttribute("aria-pressed", String(b === boton)));
       pintarCatalogo();
     });
-
     catalogo.addEventListener("click", (event) => {
       const ficha = event.target.closest("[data-ficha]");
       const comp = event.target.closest("[data-comparar]");
@@ -745,54 +525,42 @@
       const id = comp.dataset.comparar;
       const index = comparado.indexOf(id);
       if (index >= 0) comparado.splice(index, 1);
-      else if (comparado.length >= 2) {
-        comparado.shift();
-        comparado.push(id);
-      } else comparado.push(id);
+      else if (comparado.length >= 2) { comparado.shift(); comparado.push(id); }
+      else comparado.push(id);
       actualizarComparacion();
     });
-
+    document.querySelector("#ficha-tabs").addEventListener("click", (event) => {
+      const boton = event.target.closest("[data-grupo]");
+      if (!boton) return;
+      grupoActual = boton.dataset.grupo;
+      pintarGrupo();
+    });
+    document.querySelector("#hero-ficha").addEventListener("click", () => abrirFicha("rtr200"));
     document.querySelector("#abrir-comparacion").addEventListener("click", () => {
-      const elegidos = comparado.map((id) => MODELOS.find((m) => m.id === id));
-      const campos = [["Modelo", "nombre"], ["Categoría", "categoria"], ["Cilindrada", "cc"], ["Potencia", "potencia"], ["Transmisión", "transmision"], ["Precio", "precio"]];
-      const head = `<tr><th></th>${elegidos.map((m) => `<th>${m.nombre}</th>`).join("")}</tr>`;
-      const body = campos.map(([label, key]) => {
-        const celdas = elegidos.map((m) => `<td>${key === "precio" ? precioTexto(m) : key === "categoria" ? etiquetas[m.categoria] : m[key]}</td>`).join("");
-        return `<tr><th>${label}</th>${celdas}</tr>`;
-      }).join("");
-      document.querySelector("#tabla-comparacion").innerHTML = head + body;
+      const elegidos = comparado.map(buscar);
+      const campos = [["Modelo", "nombre"], ["Uso", "categoria"], ["Cilindrada", "cc"], ["Potencia", "potencia"], ["Transmisión", "transmision"], ["Precio", "precio"]];
+      document.querySelector("#tabla-comparacion").innerHTML = `<tr><th></th>${elegidos.map((m) => `<th>${m.nombre}</th>`).join("")}</tr>` + campos.map(([label, key]) => `<tr><th>${label}</th>${elegidos.map((m) => `<td>${key === "precio" ? precioTexto(m) : key === "categoria" ? etiquetas[m.categoria] : m[key]}</td>`).join("")}</tr>`).join("");
       document.querySelector("#comparacion").showModal();
     });
-
-    document.querySelector("#limpiar-comparacion").addEventListener("click", () => {
-      comparado.length = 0;
-      actualizarComparacion();
-    });
-
-    document.querySelectorAll("[data-close]").forEach((boton) => {
-      boton.addEventListener("click", () => boton.closest("dialog").close());
-    });
-
+    document.querySelector("#limpiar-comparacion").addEventListener("click", () => { comparado.length = 0; actualizarComparacion(); });
+    document.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("click", () => b.closest("dialog").close()));
     document.querySelector("#ficha-cotizar").addEventListener("click", () => {
       document.querySelector("#modelo").value = fichaActual.id;
       document.querySelector("#sim-modelo").value = fichaActual.id;
       if (fichaActual.precio) document.querySelector("#sim-precio").value = fichaActual.precio;
       pintarSimulacion();
       document.querySelector("#ficha").close();
-      document.querySelector("#contacto").scrollIntoView({ behavior: "smooth" });
+      document.querySelector("#contacto").scrollIntoView();
       document.querySelector("#nombre").focus();
     });
-
     document.querySelector("#sim-modelo").addEventListener("change", (event) => {
-      const modelo = MODELOS.find((m) => m.id === event.target.value);
+      const modelo = buscar(event.target.value);
       if (modelo.precio) document.querySelector("#sim-precio").value = modelo.precio;
       document.querySelector("#modelo").value = modelo.id;
       pintarSimulacion();
     });
-    document.querySelector("#sim-precio").addEventListener("input", pintarSimulacion);
-    document.querySelector("#sim-enganche").addEventListener("input", pintarSimulacion);
+    ["#sim-precio", "#sim-enganche"].forEach((s) => document.querySelector(s).addEventListener("input", pintarSimulacion));
     document.querySelector("#sim-plazo").addEventListener("change", pintarSimulacion);
-
     document.querySelector("#cotizacion").addEventListener("submit", (event) => {
       event.preventDefault();
       const nombre = document.querySelector("#nombre").value.trim();
@@ -804,46 +572,29 @@
       errTel.hidden = digitos.length === 10;
       errTel.textContent = digitos.length === 10 ? "" : "Usa un teléfono de 10 dígitos.";
       if (nombre.length < 2 || digitos.length !== 10) return;
-      const texto = mensajeSolicitud();
+      const modelo = buscar(document.querySelector("#modelo").value);
+      const texto = `Hola, soy ${nombre}. Quiero información de ${PISO.nombre} (${PISO.ciudad}). Motivo: ${document.querySelector("#motivo").value}. Modelo: ${modelo.nombre}. Mi teléfono: ${document.querySelector("#telefono").value.trim()}. ${document.querySelector("#comentario").value.trim()}`.replace(/\s+/g, " ").trim();
       document.querySelector("#mensaje-listo").value = texto;
       document.querySelector("#cotizacion fieldset").hidden = true;
       document.querySelector("#listo").hidden = false;
       document.querySelector("#copiado").textContent = "";
-      if (PISO.whatsapp) {
-        window.open(`https://wa.me/${PISO.whatsapp}?text=${encodeURIComponent(texto)}`, "_blank", "noopener");
-      }
+      if (PISO.whatsapp) window.open(`https://wa.me/${PISO.whatsapp}?text=${encodeURIComponent(texto)}`, "_blank", "noopener");
     });
-
     document.querySelector("#copiar").addEventListener("click", async () => {
       const texto = document.querySelector("#mensaje-listo").value;
-      try {
-        await navigator.clipboard.writeText(texto);
-        document.querySelector("#copiado").textContent = "Mensaje copiado.";
-      } catch (error) {
-        document.querySelector("#mensaje-listo").focus();
-        document.querySelector("#mensaje-listo").select();
-        document.querySelector("#copiado").textContent = "Selecciona el texto y cópialo.";
-      }
+      try { await navigator.clipboard.writeText(texto); document.querySelector("#copiado").textContent = "Mensaje copiado."; }
+      catch (error) { document.querySelector("#mensaje-listo").select(); document.querySelector("#copiado").textContent = "Selecciona el texto y cópialo."; }
     });
-
     document.querySelector("#otra").addEventListener("click", () => {
       document.querySelector("#listo").hidden = true;
       document.querySelector("#cotizacion fieldset").hidden = false;
     });
-
     const menuBtn = document.querySelector(".menu-btn");
     menuBtn.addEventListener("click", () => {
       const abierto = document.querySelector("#menu").classList.toggle("open");
       menuBtn.setAttribute("aria-expanded", String(abierto));
     });
-    document.querySelectorAll("#menu a").forEach((enlace) => {
-      enlace.addEventListener("click", () => {
-        document.querySelector("#menu").classList.remove("open");
-        menuBtn.setAttribute("aria-expanded", "false");
-      });
-    });
-
-    llenarSelects();
+    document.querySelectorAll("#menu a").forEach((a) => a.addEventListener("click", () => { document.querySelector("#menu").classList.remove("open"); menuBtn.setAttribute("aria-expanded", "false"); }));
     pintarCatalogo();
     pintarSimulacion();
   </script>
