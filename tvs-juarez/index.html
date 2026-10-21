@@ -85,9 +85,9 @@
     .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
     .filters button[aria-pressed="true"] { background: var(--blue); color: #fff; }
     .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .photo { aspect-ratio: 4 / 3; background: #071833; overflow: hidden; }
-    .photo img, img.cmp { width: 100%; height: 100%; object-fit: cover; object-position: right center; display: block; }
-    img.cmp { width: 168px; height: 126px; border-radius: 8px; background: #071833; }
+    .photo { aspect-ratio: 4 / 3; background: #fff; overflow: hidden; }
+    .photo img, img.cmp { width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; background: #fff; }
+    img.cmp { width: 168px; height: 126px; border-radius: 8px; background: #fff; }
     .card { background: var(--card); border: 1px solid #e4eaf2; border-radius: 14px; padding: 0; display: flex; flex-direction: column; min-height: 100%; overflow: hidden; box-shadow: 0 10px 28px rgba(12, 54, 136, .05); }
     .card-body { padding: 14px 16px 16px; display: flex; flex-direction: column; flex: 1; }
     .card:hover { transform: translateY(-3px); box-shadow: 0 16px 34px rgba(12, 54, 136, .1); }
@@ -199,7 +199,7 @@
         </div>
         <article class="feature">
           <div class="photo">
-            <img src="fotos/rtr200.webp" alt="Apache RTR 200 4V" width="1600" height="600">
+            <img src="fotos/rtr200.webp" alt="Apache RTR 200 4V" width="800" height="600">
           </div>
           <div class="feature-body">
             <p class="kicker">Ficha destacada</p>
@@ -234,7 +234,7 @@
         <div class="section-head">
           <div>
             <h2>Nuestros productos</h2>
-            <p>La foto de cada modelo es la del sitio de TVS México. La ficha resume esa página y enlaza al visor, el giro 360° y el folleto.</p>
+            <p>La foto de cada modelo es la toma de estudio de TVS México, con la moto completa. La ficha resume la página oficial y enlaza al visor, el giro 360° y el folleto.</p>
           </div>
         </div>
         <div class="filters" role="group" aria-label="Filtrar productos">
@@ -421,7 +421,7 @@
 
   <dialog id="ficha">
     <div class="photo">
-      <img id="ficha-foto" alt="" width="1600" height="600">
+      <img id="ficha-foto" alt="" width="800" height="600">
     </div>
     <div class="head">
       <div>
@@ -478,7 +478,7 @@
       const lista = MODELOS.filter((m) => filtro === "todas" || m.categoria === filtro);
       catalogo.innerHTML = lista.map((m) => `
         <article class="card${comparado.includes(m.id) ? " picked" : ""}">
-          <div class="photo"><img src="fotos/${m.id}.webp" alt="${m.nombre}" width="1600" height="600" loading="lazy"></div>
+          <div class="photo"><img src="fotos/${m.id}.webp" alt="${m.nombre}" width="800" height="600" loading="lazy"></div>
           <div class="card-body">
             <p class="cat">${etiquetas[m.categoria]}</p>
             <h3>${m.nombre}</h3>
